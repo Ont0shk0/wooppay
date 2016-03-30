@@ -1,0 +1,22 @@
+{
+    "name": "iborodikhin/wooppay",
+    "description": "WoopPay SOAP client",
+    "authors": [
+        {
+            "name": "Igor Borodikhin",
+            "email": "iborodikhin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-soap": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.6",
+        "squizlabs/php_codesniffer": "^2.3",
+        "fzaninotto/faker": "^1.5"
+    },
+    "autoload": {
+        "psr-4": { "Wooppay\\": "src/", "Wooppay\\Test\\": "tests/suite/" }
+    }
+}
