@@ -386,7 +386,7 @@ class GetOperationData extends Base
         $result = [];
 
         if (self::checkResponse($data)) {
-            foreach ($data->response as $item) {
+            foreach ($data->response->records as $item) {
                 if ($item) {
                     $result[] = (new self())
                         ->setId($item->id)
