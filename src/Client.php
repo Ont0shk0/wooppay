@@ -128,6 +128,56 @@ class Client extends \SoapClient
     }
 
     /**
+     * Creates invoice by service.
+     *
+     * @param  string                                          $referenceId
+     * @param  string                                          $backUrl
+     * @param  string                                          $requestUrl
+     * @param  string                                          $addInfo
+     * @param  float                                           $amount
+     * @param  string                                          $deathDate
+     * @param  integer                                         $serviceType
+     * @param  string                                          $description
+     * @param  string                                          $orderNumber
+     * @param  string                                          $userEmail
+     * @param  string                                          $userPhone
+     * @param  string                                          $serviceName
+     * @return \Wooppay\Objects\Response\CreateInvoiceExtended
+     */
+    public function createInvoiceByService(
+        $referenceId,
+        $backUrl,
+        $requestUrl,
+        $addInfo,
+        $amount,
+        $deathDate,
+        $serviceType,
+        $description,
+        $orderNumber,
+        $userEmail,
+        $userPhone,
+        $serviceName
+    ) {
+        $request = (new Request\CreateInvoiceByService())
+            ->setServiceName($serviceName)
+            ->setReferenceId($referenceId)
+            ->setBackUrl($backUrl)
+            ->setRequestUrl($requestUrl)
+            ->setAddInfo($addInfo)
+            ->setAmount($amount)
+            ->setDeathDate($deathDate)
+            ->setServiceType($serviceType)
+            ->setDescription($description)
+            ->setOrderNumber($orderNumber)
+            ->setUserEmail($userEmail)
+            ->setUserPhone($userPhone);
+
+        $result = $this->__soapCall('cash_createInvoiceByService', [$request]);
+
+        return Response\CreateInvoiceExtended::factory($result);
+    }
+
+    /**
      * Get operations' status.
      *
      * @param  array $ids
