@@ -1,10 +1,6 @@
 # Wooppay
 Wooppay SOAP client
 
-## Library is deprecated
-
-This library is deprecated and no longer supported. Use `kolesa-team/wooppay` instead.
-
 ## Installation
 
     composer require kolesa-team/wooppay
