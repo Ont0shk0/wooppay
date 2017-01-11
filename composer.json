@@ -16,6 +16,9 @@
         "squizlabs/php_codesniffer": "^2.3",
         "fzaninotto/faker": "^1.5"
     },
+    "replace": {
+        "iborodikhin/wooppay": "*"
+    },
     "autoload": {
         "psr-4": { "Wooppay\\": "src/", "Wooppay\\Test\\": "tests/suite/" }
     }
