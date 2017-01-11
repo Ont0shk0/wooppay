@@ -21,6 +21,7 @@ class TestLogin extends Base
         $result = $this->getClient()->login(getenv('soap_auth_username'), getenv('soap_auth_password'));
 
         $this->assertInstanceOf('\Wooppay\Objects\Response\Login', $result);
+        $this->assertArrayHasKey('pg_payment_system', $result->toArray());
     }
 
     /**
