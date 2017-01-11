@@ -7,7 +7,7 @@ This library is deprecated and no longer supported. Use `kolesa-team/wooppay` in
 
 ## Installation
 
-    composer require iborodikhin/wooppay
+    composer require kolesa-team/wooppay
 
 ## Usage example
 
