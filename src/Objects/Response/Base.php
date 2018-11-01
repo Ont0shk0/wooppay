@@ -9,6 +9,7 @@
 namespace Wooppay\Objects\Response;
 
 use Wooppay\Objects\Exceptions\BadCredentials;
+use Wooppay\Objects\Exceptions\LowBalance;
 use Wooppay\Objects\Exceptions\UnsuccessfulResponse;
 use Wooppay\Objects\Interfaces\Response;
 
@@ -28,11 +29,17 @@ abstract class Base implements Response
     const ERROR_CODE_BAD_CREDENTIALS = 5;
 
     /**
+     * Result code for low balance.
+     */
+    const ERROR_CODE_LOW_BALANCE = 226;
+
+    /**
      * Checks response for errors.
      *
      * @param  \stdClass                                        $response
      * @return boolean
      * @throws \Wooppay\Objects\Exceptions\BadCredentials
+     * @throws \Wooppay\Objects\Exceptions\LowBalance
      * @throws \Wooppay\Objects\Exceptions\UnsuccessfulResponse
      */
     public static function checkResponse(\stdClass $response)
@@ -44,6 +51,10 @@ abstract class Base implements Response
 
             case isset($response->error_code) && $response->error_code == self::ERROR_CODE_BAD_CREDENTIALS:
                 throw new BadCredentials();
+                break;
+
+            case isset($response->error_code) && $response->error_code == self::ERROR_CODE_LOW_BALANCE:
+                throw new LowBalance();
                 break;
 
             default:
