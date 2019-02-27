@@ -8,11 +8,20 @@
  */
 namespace Wooppay\Objects\Exceptions;
 
+use Wooppay\Objects\Response\Base as BaseResponse;
+
 /**
  * Bad credentials exception.
  */
 class BadCredentials extends Exception
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @var int
+     */
+    protected $code = BaseResponse::ERROR_CODE_BAD_CREDENTIALS;
+
     /**
      * {@inheritdoc}
      *
